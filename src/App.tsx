@@ -4,7 +4,7 @@ import HomePage from "./pages/HomePage";
 import EditPage from "./pages/EditPage";
 import ArticlePage from "./pages/ArticlePage";
 
-function App() {
+const App: React.FC = () => {
   return (
     <BrowserRouter>
       <Switch>
@@ -20,6 +20,6 @@ function App() {
       </Switch>
     </BrowserRouter>
   );
-}
+};
 
 export default App;

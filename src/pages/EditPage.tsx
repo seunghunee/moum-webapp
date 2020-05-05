@@ -1,7 +1,7 @@
 import React from "react";
 
-function EditPage() {
+const EditPage: React.FC = () => {
   return <h1>Edit</h1>;
-}
+};
 
 export default EditPage;
