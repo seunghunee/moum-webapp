@@ -1,24 +1,14 @@
 import React from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
-import HomePage from "./pages/HomePage";
-import EditPage from "./pages/EditPage";
-import ArticlePage from "./pages/ArticlePage";
+
+import BodyCon from "./components/BodyCon";
+import Header from "./components/Header";
 
 const App: React.FC = () => {
   return (
-    <BrowserRouter>
-      <Switch>
-        <Route path="/article">
-          <ArticlePage />
-        </Route>
-        <Route path="/edit">
-          <EditPage />
-        </Route>
-        <Route path="/">
-          <HomePage />
-        </Route>
-      </Switch>
-    </BrowserRouter>
+    <>
+      <Header />
+      <BodyCon />
+    </>
   );
 };
 
