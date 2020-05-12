@@ -29,7 +29,7 @@ const ArticleCard: React.FC = () => {
   );
 };
 
-const useStyle = makeStyles((theme) => ({
+const useStyle = makeStyles(() => ({
   media: {
     paddingTop: "56.25%", // 16:9
   },
