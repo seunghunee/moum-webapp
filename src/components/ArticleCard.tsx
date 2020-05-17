@@ -7,7 +7,7 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core";
 
 const ArticleCard: React.FC = () => {
-  const classes = useStyle();
+  const classes = useStyles();
 
   return (
     <Card>
@@ -29,7 +29,7 @@ const ArticleCard: React.FC = () => {
   );
 };
 
-const useStyle = makeStyles(() => ({
+const useStyles = makeStyles(() => ({
   media: {
     paddingTop: "56.25%", // 16:9
   },

@@ -5,7 +5,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import ArticleCollection from "../components/ArticleCollection";
 
 const HomePage: React.FC = () => {
-  const classes = useStyle();
+  const classes = useStyles();
 
   return (
     <Container className={classes.root} maxWidth="md">
@@ -14,7 +14,7 @@ const HomePage: React.FC = () => {
   );
 };
 
-const useStyle = makeStyles((theme) => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     paddingTop: theme.spacing(8),
     paddingBottom: theme.spacing(8),

@@ -4,7 +4,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Article from "../components/Article";
 
 const ArticlePage: React.FC = () => {
-  const classes = useStyle();
+  const classes = useStyles();
 
   return (
     <main className={classes.layout}>
@@ -13,7 +13,7 @@ const ArticlePage: React.FC = () => {
   );
 };
 
-const useStyle = makeStyles((theme) => ({
+const useStyles = makeStyles((theme) => ({
   layout: {
     width: "auto",
     marginLeft: theme.spacing(2),

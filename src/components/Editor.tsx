@@ -5,7 +5,7 @@ import TextareaAutosize from "@material-ui/core/TextareaAutosize";
 import Fab from "@material-ui/core/Fab";
 
 const Editor: React.FC = () => {
-  const classes = useStyle();
+  const classes = useStyles();
 
   return (
     <>
@@ -26,7 +26,7 @@ const Editor: React.FC = () => {
   );
 };
 
-const useStyle = makeStyles((theme) => ({
+const useStyles = makeStyles((theme) => ({
   title: {
     marginBottom: theme.spacing(4),
   },
