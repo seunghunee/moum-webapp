@@ -11,6 +11,7 @@ import EditIcon from "@material-ui/icons/Edit";
 import DeleteIcon from "@material-ui/icons/Delete";
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
+import Grid from "@material-ui/core/Grid";
 
 const Header: React.FC = () => {
   const classes = useStyles();
@@ -58,46 +59,46 @@ const Header: React.FC = () => {
   );
 
   return (
-    <div className={classes.grow}>
-      <AppBar position="sticky">
-        <Toolbar>
-          <Link
-            component={RouterLink}
-            to="/"
-            variant="h5"
-            color="inherit"
-            underline="none"
-          >
-            moum
-          </Link>
-          <div className={classes.grow} />
-          <div className={classes.sectionDesktop}>
-            <IconButton color="inherit">
-              <AddIcon />
-            </IconButton>
-            <IconButton color="inherit">
-              <EditIcon />
-            </IconButton>
-            <IconButton color="inherit">
-              <DeleteIcon />
-            </IconButton>
-          </div>
-          <div className={classes.sectionMobile}>
-            <IconButton onClick={handleMobileMenuOpen} color="inherit">
-              <MoreIcon />
-            </IconButton>
-          </div>
-        </Toolbar>
-      </AppBar>
-      {renderMobileMenu}
-    </div>
+    <AppBar position="sticky">
+      <Toolbar>
+        <Grid container justify="space-between" alignItems="center">
+          <Grid item>
+            <Link
+              component={RouterLink}
+              to="/"
+              variant="h5"
+              color="inherit"
+              underline="none"
+            >
+              moum
+            </Link>
+          </Grid>
+          <Grid item>
+            <div className={classes.sectionDesktop}>
+              <IconButton color="inherit">
+                <AddIcon />
+              </IconButton>
+              <IconButton color="inherit">
+                <EditIcon />
+              </IconButton>
+              <IconButton color="inherit">
+                <DeleteIcon />
+              </IconButton>
+            </div>
+            <div className={classes.sectionMobile}>
+              <IconButton onClick={handleMobileMenuOpen} color="inherit">
+                <MoreIcon />
+              </IconButton>
+            </div>
+            {renderMobileMenu}
+          </Grid>
+        </Grid>
+      </Toolbar>
+    </AppBar>
   );
 };
 
 const useStyles = makeStyles((theme) => ({
-  grow: {
-    flexGrow: 1,
-  },
   sectionDesktop: {
     display: "none",
     [theme.breakpoints.up("sm")]: {
