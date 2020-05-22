@@ -1,6 +1,5 @@
 import React from "react";
 import IconButton from "@material-ui/core/IconButton";
-import { makeStyles } from "@material-ui/core/styles";
 import MoreIcon from "@material-ui/icons/MoreVert";
 import AddIcon from "@material-ui/icons/Add";
 import EditIcon from "@material-ui/icons/Edit";
@@ -8,9 +7,9 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
 import Typography from "@material-ui/core/Typography";
+import Hidden from "@material-ui/core/Hidden";
 
 const Actions: React.FC = () => {
-  const classes = useStyles();
   const [
     overflowMenuAnchorEl,
     setOverflowMenuAnchorEl,
@@ -54,36 +53,21 @@ const Actions: React.FC = () => {
 
   return (
     <>
-      <div className={classes.sectionDefault}>
+      <Hidden xsDown>
         {overflowMenuItems.map(({ Icon, text, onClick }) => (
           <IconButton key={text} onClick={onClick} color="inherit">
             <Icon />
           </IconButton>
         ))}
-      </div>
-      <div className={classes.sectionSmallScreen}>
+      </Hidden>
+      <Hidden smUp>
         <IconButton onClick={handleOverflowMenuOpen} color="inherit">
           <MoreIcon />
         </IconButton>
         {overflowMenu}
-      </div>
+      </Hidden>
     </>
   );
 };
-
-const useStyles = makeStyles((theme) => ({
-  sectionDefault: {
-    display: "none",
-    [theme.breakpoints.up("sm")]: {
-      display: "flex",
-    },
-  },
-  sectionSmallScreen: {
-    display: "flex",
-    [theme.breakpoints.up("sm")]: {
-      display: "none",
-    },
-  },
-}));
 
 export default Actions;
