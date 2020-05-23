@@ -1,4 +1,5 @@
 import React from "react";
+import { useRouteMatch } from "react-router-dom";
 import IconButton from "@material-ui/core/IconButton";
 import MoreIcon from "@material-ui/icons/MoreVert";
 import AddIcon from "@material-ui/icons/Add";
@@ -24,11 +25,19 @@ const Actions: React.FC = () => {
     setOverflowMenuAnchorEl(null);
   };
 
-  const overflowMenuItems = [
+  let items = [
     { Icon: AddIcon, text: "New article", onClick: () => alert("New article") },
     { Icon: EditIcon, text: "Edit", onClick: () => alert("Edit") },
     { Icon: DeleteIcon, text: "Delete", onClick: () => alert("Delete") },
   ];
+  const match = useRouteMatch(["/edit", "/:article", "/"]);
+  switch (match?.path) {
+    case "/edit":
+      return null;
+    case "/":
+      items = items.filter((item) => item.Icon === AddIcon);
+      break;
+  }
 
   const overflowMenu = (
     <Menu
@@ -39,7 +48,7 @@ const Actions: React.FC = () => {
       open={isOverflowMenuOpen}
       onClose={handleOverflowMenuClose}
     >
-      {overflowMenuItems.map(({ Icon, text, onClick }) => (
+      {items.map(({ Icon, text, onClick }) => (
         <MenuItem key={text} onClick={onClick}>
           {Icon && (
             <IconButton color="inherit">
@@ -55,7 +64,7 @@ const Actions: React.FC = () => {
   return (
     <>
       <Hidden xsDown>
-        {overflowMenuItems.map(({ Icon, text, onClick }) => (
+        {items.map(({ Icon, text, onClick }) => (
           <Tooltip key={text} title={text}>
             <IconButton onClick={onClick} color="inherit">
               <Icon />

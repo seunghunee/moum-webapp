@@ -8,11 +8,11 @@ import ArticlePage from "../pages/ArticlePage";
 const BodyCon: React.FC = () => {
   return (
     <Switch>
-      <Route path="/article">
-        <ArticlePage />
-      </Route>
       <Route path="/edit">
         <EditPage />
+      </Route>
+      <Route path="/:article">
+        <ArticlePage />
       </Route>
       <Route path="/">
         <HomePage />
