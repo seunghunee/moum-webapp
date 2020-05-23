@@ -8,6 +8,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
 import Typography from "@material-ui/core/Typography";
 import Hidden from "@material-ui/core/Hidden";
+import Tooltip from "@material-ui/core/Tooltip";
 
 const Actions: React.FC = () => {
   const [
@@ -55,9 +56,11 @@ const Actions: React.FC = () => {
     <>
       <Hidden xsDown>
         {overflowMenuItems.map(({ Icon, text, onClick }) => (
-          <IconButton key={text} onClick={onClick} color="inherit">
-            <Icon />
-          </IconButton>
+          <Tooltip key={text} title={text}>
+            <IconButton onClick={onClick} color="inherit">
+              <Icon />
+            </IconButton>
+          </Tooltip>
         ))}
       </Hidden>
       <Hidden smUp>
