@@ -1,5 +1,5 @@
 import React from "react";
-import { useRouteMatch } from "react-router-dom";
+import { useRouteMatch, useHistory } from "react-router-dom";
 import IconButton from "@material-ui/core/IconButton";
 import MoreIcon from "@material-ui/icons/MoreVert";
 import AddIcon from "@material-ui/icons/Add";
@@ -25,8 +25,13 @@ const Actions: React.FC = () => {
     setOverflowMenuAnchorEl(null);
   };
 
+  const history = useHistory();
   let items = [
-    { Icon: AddIcon, text: "New article", onClick: () => alert("New article") },
+    {
+      Icon: AddIcon,
+      text: "New article",
+      onClick: () => history.push("/edit"),
+    },
     { Icon: EditIcon, text: "Edit", onClick: () => alert("Edit") },
     { Icon: DeleteIcon, text: "Delete", onClick: () => alert("Delete") },
   ];
@@ -50,11 +55,9 @@ const Actions: React.FC = () => {
     >
       {items.map(({ Icon, text, onClick }) => (
         <MenuItem key={text} onClick={onClick}>
-          {Icon && (
-            <IconButton color="inherit">
-              <Icon />
-            </IconButton>
-          )}
+          <IconButton color="inherit">
+            <Icon />
+          </IconButton>
           <Typography>{text}</Typography>
         </MenuItem>
       ))}
