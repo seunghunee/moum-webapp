@@ -21,8 +21,9 @@
     "typescript": "^3.9.3"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "npm run relay && react-scripts start",
+    "build": "npm run relay && react-scripts build",
+    "relay": "relay-compiler --schema ./schema.graphql --src ./src --language typescript --watchman false $@",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
