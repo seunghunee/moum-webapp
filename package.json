@@ -14,8 +14,10 @@
     "@types/react-dom": "^16.9.8",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-relay": "0.0.0-experimental-94e87455",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
+    "relay-runtime": "^9.1.0",
     "typescript": "^3.9.3"
   },
   "scripts": {
@@ -40,7 +42,10 @@
     ]
   },
   "devDependencies": {
-    "@types/react-router-dom": "^5.1.5"
+    "@types/react-router-dom": "^5.1.5",
+    "babel-plugin-relay": "^9.1.0",
+    "graphql": "^15.0.0",
+    "relay-compiler": "^9.1.0"
   },
   "proxy": "http://localhost:8080"
 }
