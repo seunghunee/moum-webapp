@@ -1,0 +1,47 @@
+interface Node {
+  id: ID!
+}
+
+type Query {
+  articles: [Article!]!
+  node(id: ID!): Node
+}
+
+type Article implements Node {
+  id: ID!
+  title: String!
+  body: String
+}
+
+type Mutation {
+  addArticle(input: AddArticleInput!): AddArticlePayload
+  updateArticle(input: UpdateArticleInput!): UpdateArticlePayload
+  deleteArticle(input: DeleteArticleInput!): DeleteArticlePayload
+}
+
+input AddArticleInput {
+  title: String!
+  body: String
+}
+
+type AddArticlePayload {
+  article: Article
+}
+
+input UpdateArticleInput {
+  id: ID!
+  title: String!
+  body: String
+}
+
+type UpdateArticlePayload {
+  article: Article
+}
+
+input DeleteArticleInput {
+  id: ID!
+}
+
+type DeleteArticlePayload {
+  deletedId: ID!
+}
