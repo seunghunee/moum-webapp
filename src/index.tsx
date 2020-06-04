@@ -1,15 +1,19 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { RelayEnvironmentProvider } from "react-relay/hooks";
 import { BrowserRouter } from "react-router-dom";
 
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
+import RelayEnvironment from "./RelayEnvironment";
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <RelayEnvironmentProvider environment={RelayEnvironment}>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </RelayEnvironmentProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );
