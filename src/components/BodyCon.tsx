@@ -4,17 +4,18 @@ import { Switch, Route } from "react-router-dom";
 import HomePage from "../pages/HomePage";
 import EditPage from "../pages/EditPage";
 import ArticlePage from "../pages/ArticlePage";
+import { Paths } from "../URL";
 
 const BodyCon: React.FC = () => {
   return (
     <Switch>
-      <Route path="/edit">
+      <Route path={Paths.Edit}>
         <EditPage />
       </Route>
-      <Route path="/:article">
+      <Route path={Paths.Article}>
         <ArticlePage />
       </Route>
-      <Route path="/">
+      <Route path={Paths.Home}>
         <HomePage />
       </Route>
     </Switch>

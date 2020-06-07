@@ -6,6 +6,7 @@ import Link from "@material-ui/core/Link";
 import Grid from "@material-ui/core/Grid";
 
 import Actions from "./Actions";
+import { Paths } from "../URL";
 
 const Header: React.FC = () => {
   return (
@@ -15,7 +16,7 @@ const Header: React.FC = () => {
           <Grid item>
             <Link
               component={RouterLink}
-              to="/"
+              to={Paths.Home}
               variant="h5"
               color="inherit"
               underline="none"

@@ -11,6 +11,8 @@ import Typography from "@material-ui/core/Typography";
 import Hidden from "@material-ui/core/Hidden";
 import Tooltip from "@material-ui/core/Tooltip";
 
+import { Paths } from "../URL";
+
 const Actions: React.FC = () => {
   const [
     overflowMenuAnchorEl,
@@ -30,16 +32,16 @@ const Actions: React.FC = () => {
     {
       Icon: AddIcon,
       text: "New article",
-      onClick: () => history.push("/edit"),
+      onClick: () => history.push(Paths.Edit),
     },
     { Icon: EditIcon, text: "Edit", onClick: () => alert("Edit") },
     { Icon: DeleteIcon, text: "Delete", onClick: () => alert("Delete") },
   ];
-  const match = useRouteMatch(["/edit", "/:article", "/"]);
+  const match = useRouteMatch([Paths.Edit, Paths.Article, Paths.Home]);
   switch (match?.path) {
-    case "/edit":
+    case Paths.Edit:
       return null;
-    case "/":
+    case Paths.Home:
       items = items.filter((item) => item.Icon === AddIcon);
       break;
   }
