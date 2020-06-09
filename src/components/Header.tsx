@@ -6,7 +6,7 @@ import Link from "@material-ui/core/Link";
 import Grid from "@material-ui/core/Grid";
 
 import Actions from "./Actions";
-import { Paths } from "../URL";
+import { Paths } from "../routes";
 
 const Header: React.FC = () => {
   return (

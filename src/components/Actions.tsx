@@ -11,7 +11,7 @@ import Typography from "@material-ui/core/Typography";
 import Hidden from "@material-ui/core/Hidden";
 import Tooltip from "@material-ui/core/Tooltip";
 
-import { Paths } from "../URL";
+import { Paths } from "../routes";
 
 const Actions: React.FC = () => {
   const [

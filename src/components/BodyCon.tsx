@@ -4,7 +4,7 @@ import { Switch, Route } from "react-router-dom";
 import HomePage from "../pages/HomePage";
 import EditPage from "../pages/EditPage";
 import ArticlePage from "../pages/ArticlePage";
-import { Paths } from "../URL";
+import { Paths } from "../routes";
 
 const BodyCon: React.FC = () => {
   return (
