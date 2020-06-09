@@ -3,3 +3,7 @@ export enum Paths {
   Edit = "/edit",
   Home = "/",
 }
+
+export interface ArticleParams {
+  title: string;
+}
