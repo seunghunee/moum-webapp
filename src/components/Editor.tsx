@@ -1,15 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import { useMutation } from "react-relay/hooks";
 import graphql from "babel-plugin-relay/macro";
-import { EditorMutation } from "./__generated__/EditorMutation.graphql";
+import { useHistory } from "react-router-dom";
+
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import TextareaAutosize from "@material-ui/core/TextareaAutosize";
 import Fab from "@material-ui/core/Fab";
 
+import { EditorMutation } from "./__generated__/EditorMutation.graphql";
+
 const Editor: React.FC = () => {
-  const [title, setTitle] = React.useState<string>("");
-  const [body, setBody] = React.useState<string>("");
+  const [title, setTitle] = useState<string>("");
+  const [body, setBody] = useState<string>("");
   const [addArticle] = useMutation<EditorMutation>(
     graphql`
       mutation EditorMutation($input: AddArticleInput!) {
@@ -23,8 +26,9 @@ const Editor: React.FC = () => {
       }
     `
   );
-  const classes = useStyles();
+  const history = useHistory();
 
+  const classes = useStyles();
   return (
     <>
       <TextField
@@ -51,6 +55,9 @@ const Editor: React.FC = () => {
                 title,
                 body,
               },
+            },
+            onCompleted(response) {
+              history.push(`/${response.addArticle?.article?.title}`);
             },
           })
         }
