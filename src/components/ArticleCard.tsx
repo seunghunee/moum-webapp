@@ -1,6 +1,8 @@
 import React from "react";
 import { useFragment } from "react-relay/hooks";
 import graphql from "babel-plugin-relay/macro";
+import { Link } from "react-router-dom";
+
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardMedia from "@material-ui/core/CardMedia";
@@ -28,7 +30,7 @@ const ArticleCard: React.FC<Props> = ({ article }) => {
   const classes = useStyles();
   return (
     <Card>
-      <CardActionArea>
+      <CardActionArea component={Link} to={`/${title}`}>
         <CardMedia
           className={classes.media}
           image="https://source.unsplash.com/random"
