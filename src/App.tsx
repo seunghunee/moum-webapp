@@ -1,7 +1,7 @@
 import React, { Suspense } from "react";
 import CssBaseline from "@material-ui/core/CssBaseline";
 
-import BodyCon from "./components/BodyCon";
+import Body from "./components/Body";
 import Header from "./components/Header";
 
 const App: React.FC = () => {
@@ -10,7 +10,7 @@ const App: React.FC = () => {
     <Suspense fallback={"Loading..."}>
       <CssBaseline />
       <Header />
-      <BodyCon />
+      <Body />
     </Suspense>
   );
 };

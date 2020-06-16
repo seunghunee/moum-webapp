@@ -6,7 +6,7 @@ import EditPage from "../pages/EditPage";
 import ArticlePage from "../pages/ArticlePage";
 import { Paths } from "../routes";
 
-const BodyCon: React.FC = () => {
+const Body: React.FC = () => {
   return (
     <Switch>
       <Route path={Paths.Edit}>
@@ -22,4 +22,4 @@ const BodyCon: React.FC = () => {
   );
 };
 
-export default BodyCon;
+export default Body;
