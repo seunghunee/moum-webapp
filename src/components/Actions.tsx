@@ -1,5 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useRouteMatch, useHistory } from "react-router-dom";
+import { useMutation } from "react-relay/hooks";
+import graphql from "babel-plugin-relay/macro";
+
 import IconButton from "@material-ui/core/IconButton";
 import MoreIcon from "@material-ui/icons/MoreVert";
 import AddIcon from "@material-ui/icons/Add";
@@ -12,6 +15,8 @@ import Hidden from "@material-ui/core/Hidden";
 import Tooltip from "@material-ui/core/Tooltip";
 
 import { Paths } from "../routes";
+import { ActionsMutation } from "./__generated__/ActionsMutation.graphql";
+import { CurrentArticleIdContext } from "../contexts/CurrentAritlceId";
 
 const Actions: React.FC = () => {
   const [
@@ -28,14 +33,25 @@ const Actions: React.FC = () => {
   };
 
   const history = useHistory();
+  const handleAddClick = () => history.push(Paths.Edit);
+
+  const [deleteArticle] = useMutation<ActionsMutation>(
+    graphql`
+      mutation ActionsMutation($input: DeleteArticleInput!) {
+        deleteArticle(input: $input) {
+          deletedId
+        }
+      }
+    `
+  );
+  const { currentArticleId } = useContext(CurrentArticleIdContext);
+  const handleDeleteClick = () =>
+    deleteArticle({ variables: { input: { id: currentArticleId } } });
+
   let items = [
-    {
-      Icon: AddIcon,
-      text: "New article",
-      onClick: () => history.push(Paths.Edit),
-    },
+    { Icon: AddIcon, text: "New article", onClick: handleAddClick },
     { Icon: EditIcon, text: "Edit", onClick: () => alert("Edit") },
-    { Icon: DeleteIcon, text: "Delete", onClick: () => alert("Delete") },
+    { Icon: DeleteIcon, text: "Delete", onClick: handleDeleteClick },
   ];
   const match = useRouteMatch([Paths.Edit, Paths.Article, Paths.Home]);
   switch (match?.path) {
