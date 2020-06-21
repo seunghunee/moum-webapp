@@ -45,8 +45,15 @@ const Actions: React.FC = () => {
     `
   );
   const { currentArticleId } = useContext(CurrentArticleIdContext);
-  const handleDeleteClick = () =>
-    deleteArticle({ variables: { input: { id: currentArticleId } } });
+  const handleDeleteClick = () => {
+    if (!currentArticleId) return;
+    deleteArticle({
+      variables: { input: { id: currentArticleId } },
+      onCompleted() {
+        history.push(Paths.Home);
+      },
+    });
+  };
 
   let items = [
     { Icon: AddIcon, text: "New article", onClick: handleAddClick },

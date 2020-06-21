@@ -16,7 +16,8 @@ const HomePage: React.FC = () => {
         }
       }
     `,
-    {}
+    {},
+    { fetchPolicy: "network-only" }
   );
 
   const classes = useStyles();
