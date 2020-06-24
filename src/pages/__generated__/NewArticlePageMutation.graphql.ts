@@ -6,10 +6,10 @@ export type AddArticleInput = {
     title: string;
     body: string;
 };
-export type EditorMutationVariables = {
+export type NewArticlePageMutationVariables = {
     input: AddArticleInput;
 };
-export type EditorMutationResponse = {
+export type NewArticlePageMutationResponse = {
     readonly addArticle: {
         readonly article: {
             readonly id: string;
@@ -18,15 +18,15 @@ export type EditorMutationResponse = {
         } | null;
     } | null;
 };
-export type EditorMutation = {
-    readonly response: EditorMutationResponse;
-    readonly variables: EditorMutationVariables;
+export type NewArticlePageMutation = {
+    readonly response: NewArticlePageMutationResponse;
+    readonly variables: NewArticlePageMutationVariables;
 };
 
 
 
 /*
-mutation EditorMutation(
+mutation NewArticlePageMutation(
   $input: AddArticleInput!
 ) {
   addArticle(input: $input) {
@@ -104,7 +104,7 @@ return {
     "argumentDefinitions": (v0/*: any*/),
     "kind": "Fragment",
     "metadata": null,
-    "name": "EditorMutation",
+    "name": "NewArticlePageMutation",
     "selections": (v1/*: any*/),
     "type": "Mutation"
   },
@@ -112,17 +112,17 @@ return {
   "operation": {
     "argumentDefinitions": (v0/*: any*/),
     "kind": "Operation",
-    "name": "EditorMutation",
+    "name": "NewArticlePageMutation",
     "selections": (v1/*: any*/)
   },
   "params": {
     "id": null,
     "metadata": {},
-    "name": "EditorMutation",
+    "name": "NewArticlePageMutation",
     "operationKind": "mutation",
-    "text": "mutation EditorMutation(\n  $input: AddArticleInput!\n) {\n  addArticle(input: $input) {\n    article {\n      id\n      title\n      body\n    }\n  }\n}\n"
+    "text": "mutation NewArticlePageMutation(\n  $input: AddArticleInput!\n) {\n  addArticle(input: $input) {\n    article {\n      id\n      title\n      body\n    }\n  }\n}\n"
   }
 };
 })();
-(node as any).hash = '79fe3163174ad34b4765e7e8403127c5';
+(node as any).hash = '8581f59720ed89cec3d4871a81472a6c';
 export default node;

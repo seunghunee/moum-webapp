@@ -1,6 +1,6 @@
 export enum Paths {
   Article = "/:title",
-  Edit = "/edit",
+  NewArticle = "/edit",
   Home = "/",
 }
 

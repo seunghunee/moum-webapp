@@ -33,7 +33,8 @@ const Actions: React.FC = () => {
   };
 
   const history = useHistory();
-  const handleAddClick = () => history.push(Paths.Edit);
+
+  const handleAddClick = () => history.push(Paths.NewArticle);
 
   const [deleteArticle] = useMutation<ActionsMutation>(
     graphql`
@@ -60,9 +61,9 @@ const Actions: React.FC = () => {
     { Icon: EditIcon, text: "Edit", onClick: () => alert("Edit") },
     { Icon: DeleteIcon, text: "Delete", onClick: handleDeleteClick },
   ];
-  const match = useRouteMatch([Paths.Edit, Paths.Article, Paths.Home]);
+  const match = useRouteMatch([Paths.NewArticle, Paths.Article, Paths.Home]);
   switch (match?.path) {
-    case Paths.Edit:
+    case Paths.NewArticle:
       return null;
     case Paths.Home:
       items = items.filter((item) => item.Icon === AddIcon);

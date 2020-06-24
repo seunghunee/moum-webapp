@@ -1,32 +1,23 @@
 import React, { useState } from "react";
-import { useMutation } from "react-relay/hooks";
-import graphql from "babel-plugin-relay/macro";
-import { useHistory } from "react-router-dom";
 
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import TextareaAutosize from "@material-ui/core/TextareaAutosize";
 import Fab from "@material-ui/core/Fab";
 
-import { EditorMutation } from "./__generated__/EditorMutation.graphql";
+interface Props {
+  handleSubmit: (title: string, body: string) => void;
+  defaultTitle?: string;
+  defaultBody?: string;
+}
 
-const Editor: React.FC = () => {
-  const [title, setTitle] = useState<string>("");
-  const [body, setBody] = useState<string>("");
-  const [addArticle] = useMutation<EditorMutation>(
-    graphql`
-      mutation EditorMutation($input: AddArticleInput!) {
-        addArticle(input: $input) {
-          article {
-            id
-            title
-            body
-          }
-        }
-      }
-    `
-  );
-  const history = useHistory();
+const Editor: React.FC<Props> = ({
+  handleSubmit,
+  defaultTitle = "",
+  defaultBody = "",
+}) => {
+  const [title, setTitle] = useState<string>(defaultTitle);
+  const [body, setBody] = useState<string>(defaultBody);
 
   const classes = useStyles();
   return (
@@ -47,23 +38,7 @@ const Editor: React.FC = () => {
         value={body}
         onChange={(event) => setBody(event.target.value)}
       />
-      <Fab
-        onClick={() =>
-          addArticle({
-            variables: {
-              input: {
-                title,
-                body,
-              },
-            },
-            onCompleted(response) {
-              history.push(`/${response.addArticle?.article?.title}`);
-            },
-          })
-        }
-      >
-        Save
-      </Fab>
+      <Fab onClick={() => handleSubmit(title, body)}>Submit</Fab>
     </>
   );
 };
