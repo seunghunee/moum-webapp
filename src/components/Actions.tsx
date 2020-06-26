@@ -14,7 +14,7 @@ import Typography from "@material-ui/core/Typography";
 import Hidden from "@material-ui/core/Hidden";
 import Tooltip from "@material-ui/core/Tooltip";
 
-import { Paths } from "../routes";
+import { Paths, ArticleParams } from "../routes";
 import { ActionsMutation } from "./__generated__/ActionsMutation.graphql";
 import { CurrentArticleIdContext } from "../contexts/CurrentAritlceId";
 
@@ -33,8 +33,18 @@ const Actions: React.FC = () => {
   };
 
   const history = useHistory();
+  // TODO: ArticleParams가 아닌 다른 Path에 매치됐을 때도 올바르게 적용될 타입을 사용하기
+  const match = useRouteMatch<ArticleParams>([
+    Paths.EditArticle,
+    Paths.NewArticle,
+    Paths.Article,
+    Paths.Home,
+  ]);
 
   const handleAddClick = () => history.push(Paths.NewArticle);
+
+  const handleEditClick = () =>
+    history.push(Paths.EditArticle.replace(":title", match!.params.title));
 
   const [deleteArticle] = useMutation<ActionsMutation>(
     graphql`
@@ -58,11 +68,11 @@ const Actions: React.FC = () => {
 
   let items = [
     { Icon: AddIcon, text: "New article", onClick: handleAddClick },
-    { Icon: EditIcon, text: "Edit", onClick: () => alert("Edit") },
+    { Icon: EditIcon, text: "Edit", onClick: handleEditClick },
     { Icon: DeleteIcon, text: "Delete", onClick: handleDeleteClick },
   ];
-  const match = useRouteMatch([Paths.NewArticle, Paths.Article, Paths.Home]);
   switch (match?.path) {
+    case Paths.EditArticle:
     case Paths.NewArticle:
       return null;
     case Paths.Home:
