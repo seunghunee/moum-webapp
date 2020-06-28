@@ -1,14 +1,16 @@
+// useRouteMatch의 인수로도 쓰이기 때문에 순서가 중요하다.
 export enum Paths {
-  Article = "/:title",
-  NewArticle = "/edit",
   EditArticle = "/edit/:title",
+  NewArticle = "/edit",
+  Article = "/:title",
   Home = "/",
-}
-
-export interface ArticleParams {
-  title: string;
 }
 
 export interface EditArticleParams {
   title: string;
 }
+export interface NewArticleParams {}
+export interface ArticleParams {
+  title: string;
+}
+export interface HomeParams {}

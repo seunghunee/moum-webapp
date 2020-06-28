@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
-import { useRouteMatch, useHistory } from "react-router-dom";
+// TODO: ESLint에 타입스크립트 설정하기
+import { useRouteMatch, useHistory, match } from "react-router-dom";
 import { useMutation } from "react-relay/hooks";
 import graphql from "babel-plugin-relay/macro";
 
@@ -33,18 +34,20 @@ const Actions: React.FC = () => {
   };
 
   const history = useHistory();
-  // TODO: ArticleParams가 아닌 다른 Path에 매치됐을 때도 올바르게 적용될 타입을 사용하기
-  const match = useRouteMatch<ArticleParams>([
-    Paths.EditArticle,
-    Paths.NewArticle,
-    Paths.Article,
-    Paths.Home,
-  ]);
+  const match = useRouteMatch(Object.values(Paths));
 
-  const handleAddClick = () => history.push(Paths.NewArticle);
+  const handleAddClick = () => {
+    history.push(Paths.NewArticle);
+  };
 
-  const handleEditClick = () =>
-    history.push(Paths.EditArticle.replace(":title", match!.params.title));
+  const handleEditClick = () => {
+    history.push(
+      Paths.EditArticle.replace(
+        ":title",
+        (match as match<ArticleParams>).params.title
+      )
+    );
+  };
 
   const [deleteArticle] = useMutation<ActionsMutation>(
     graphql`
