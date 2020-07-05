@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-// TODO: ESLint에 타입스크립트 설정하기
 import { useRouteMatch, useHistory, match } from "react-router-dom";
 import { useMutation } from "react-relay/hooks";
 import graphql from "babel-plugin-relay/macro";
@@ -34,7 +33,7 @@ const Actions: React.FC = () => {
   };
 
   const history = useHistory();
-  const match = useRouteMatch(Object.values(Paths));
+  const routeMatch = useRouteMatch(Object.values(Paths));
 
   const handleAddClick = () => {
     history.push(Paths.NewArticle);
@@ -44,7 +43,7 @@ const Actions: React.FC = () => {
     history.push(
       Paths.EditArticle.replace(
         ":title",
-        (match as match<ArticleParams>).params.title
+        (routeMatch as match<ArticleParams>).params.title
       )
     );
   };
@@ -74,7 +73,7 @@ const Actions: React.FC = () => {
     { Icon: EditIcon, text: "Edit", onClick: handleEditClick },
     { Icon: DeleteIcon, text: "Delete", onClick: handleDeleteClick },
   ];
-  switch (match?.path) {
+  switch (routeMatch?.path) {
     case Paths.EditArticle:
     case Paths.NewArticle:
       return null;
