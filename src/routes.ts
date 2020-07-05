@@ -9,8 +9,6 @@ export enum Paths {
 export interface EditArticleParams {
   title: string;
 }
-export interface NewArticleParams {}
 export interface ArticleParams {
   title: string;
 }
-export interface HomeParams {}
