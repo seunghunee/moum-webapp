@@ -12,5 +12,6 @@ module.exports = {
   rules: {
     "@typescript-eslint/no-use-before-define": "off",
     "@typescript-eslint/camelcase": "off",
+    "@typescript-eslint/no-non-null-assertion": "off",
   },
 };
