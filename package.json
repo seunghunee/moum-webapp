@@ -48,6 +48,7 @@
     "@types/react-router-dom": "^5.1.5",
     "@types/relay-runtime": "^9.1.5",
     "babel-plugin-relay": "^9.1.0",
+    "eslint-config-prettier": "^6.11.0",
     "graphql": "^15.2.0",
     "prettier": "2.0.5",
     "relay-compiler": "^9.1.0",
