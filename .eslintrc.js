@@ -8,6 +8,9 @@ module.exports = {
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
     "react-app",
+    "prettier",
+    "prettier/@typescript-eslint",
+    "prettier/react",
   ],
   rules: {
     "@typescript-eslint/no-use-before-define": "off",
