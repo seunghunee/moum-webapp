@@ -4,9 +4,10 @@ import graphql from "babel-plugin-relay/macro";
 import { useParams } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 
+import { ArticleParams } from "routes";
+import Article from "components/Article";
+import ArticleNotFound from "components/ArticleNotFound";
 import { ArticlePageQuery } from "./__generated__/ArticlePageQuery.graphql";
-import Article from "../components/Article";
-import { ArticleParams } from "../routes";
 
 const ArticlePage: React.FC = () => {
   const { title } = useParams<ArticleParams>();
@@ -24,8 +25,11 @@ const ArticlePage: React.FC = () => {
   const classes = useStyles();
   return (
     <main className={classes.layout}>
-      {/* TODO: 글을 찾을 수 없을 때 메시지표시를 보기 좋게 하기 */}
-      {article ? <Article article={article} /> : `${title}: No such article`}
+      {article ? (
+        <Article article={article} />
+      ) : (
+        <ArticleNotFound articleTitle={title} />
+      )}
     </main>
   );
 };
