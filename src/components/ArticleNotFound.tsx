@@ -2,6 +2,8 @@ import React from "react";
 
 import { Typography } from "@material-ui/core";
 
+import ViwerTitle from "./ViewerTitle";
+
 interface Props {
   articleTitle: string;
 }
@@ -9,9 +11,7 @@ interface Props {
 const ArticleNotFound: React.FC<Props> = ({ articleTitle }) => {
   return (
     <>
-      <Typography variant="h4" gutterBottom>
-        {articleTitle}
-      </Typography>
+      <ViwerTitle>{articleTitle}</ViwerTitle>
       <Typography variant="h2" align="center">
         Article Not Found
       </Typography>

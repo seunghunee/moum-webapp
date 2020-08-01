@@ -5,6 +5,7 @@ import { Typography } from "@material-ui/core";
 
 import { Article_article$key } from "./__generated__/Article_article.graphql";
 import { CurrentArticleIdContext } from "../contexts/CurrentAritlceId";
+import ViwerTitle from "./ViewerTitle";
 
 interface Props {
   article: Article_article$key;
@@ -29,9 +30,7 @@ const Article: React.FC<Props> = ({ article }) => {
 
   return (
     <>
-      <Typography variant="h4" gutterBottom>
-        {title}
-      </Typography>
+      <ViwerTitle>{title}</ViwerTitle>
       <Typography paragraph>{body}</Typography>
     </>
   );
