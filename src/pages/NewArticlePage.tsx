@@ -24,7 +24,7 @@ const NewArticlePage: React.FC = () => {
     `
   );
   const history = useHistory();
-  const handleSubmit = (title: string, body: string) =>
+  const submit = (title: string, body: string) =>
     addArticle({
       variables: {
         input: {
@@ -40,7 +40,7 @@ const NewArticlePage: React.FC = () => {
   const classes = useStyles();
   return (
     <Container className={classes.root} maxWidth="md">
-      <Editor handleSubmit={handleSubmit} />
+      <Editor submit={submit} />
     </Container>
   );
 };

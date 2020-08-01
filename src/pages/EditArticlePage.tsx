@@ -40,7 +40,7 @@ const EditArticlePage: React.FC = () => {
     `
   );
   const history = useHistory();
-  const handleSubmit = (title: string, body: string) =>
+  const submit = (title: string, body: string) =>
     editArticle({
       variables: {
         input: {
@@ -61,7 +61,7 @@ const EditArticlePage: React.FC = () => {
   return (
     <Container className={classes.root} maxWidth="md">
       <Editor
-        handleSubmit={handleSubmit}
+        submit={submit}
         defaultTitle={article.title}
         defaultBody={article.body}
       />

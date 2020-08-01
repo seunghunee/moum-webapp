@@ -6,13 +6,13 @@ import TextareaAutosize from "@material-ui/core/TextareaAutosize";
 import Fab from "@material-ui/core/Fab";
 
 interface Props {
-  handleSubmit: (title: string, body: string) => void;
+  submit: (title: string, body: string) => void;
   defaultTitle?: string;
   defaultBody?: string;
 }
 
 const Editor: React.FC<Props> = ({
-  handleSubmit,
+  submit,
   defaultTitle = "",
   defaultBody = "",
 }) => {
@@ -38,7 +38,7 @@ const Editor: React.FC<Props> = ({
         value={body}
         onChange={(event) => setBody(event.target.value)}
       />
-      <Fab onClick={() => handleSubmit(title, body)}>Submit</Fab>
+      <Fab onClick={() => submit(title, body)}>Submit</Fab>
     </>
   );
 };
