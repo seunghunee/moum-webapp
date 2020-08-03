@@ -44,8 +44,7 @@ var v0 = [
   {
     "defaultValue": null,
     "kind": "LocalArgument",
-    "name": "input",
-    "type": "AddArticleInput!"
+    "name": "input"
   }
 ],
 v1 = [
@@ -106,7 +105,8 @@ return {
     "metadata": null,
     "name": "NewArticlePageMutation",
     "selections": (v1/*: any*/),
-    "type": "Mutation"
+    "type": "Mutation",
+    "abstractKey": null
   },
   "kind": "Request",
   "operation": {
@@ -116,6 +116,7 @@ return {
     "selections": (v1/*: any*/)
   },
   "params": {
+    "cacheID": "8ab4ada2ea8cb8ae14847c0709ed7988",
     "id": null,
     "metadata": {},
     "name": "NewArticlePageMutation",

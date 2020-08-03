@@ -36,8 +36,7 @@ var v0 = [
   {
     "defaultValue": null,
     "kind": "LocalArgument",
-    "name": "title",
-    "type": "String!"
+    "name": "title"
   }
 ],
 v1 = [
@@ -87,7 +86,8 @@ return {
     "metadata": null,
     "name": "EditArticlePageQuery",
     "selections": (v1/*: any*/),
-    "type": "Query"
+    "type": "Query",
+    "abstractKey": null
   },
   "kind": "Request",
   "operation": {
@@ -97,6 +97,7 @@ return {
     "selections": (v1/*: any*/)
   },
   "params": {
+    "cacheID": "664f3f6f9ff3b66d188f14de71acc22f",
     "id": null,
     "metadata": {},
     "name": "EditArticlePageQuery",

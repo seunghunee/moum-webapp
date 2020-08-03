@@ -59,7 +59,8 @@ const node: ConcreteRequest = {
         "storageKey": null
       }
     ],
-    "type": "Query"
+    "type": "Query",
+    "abstractKey": null
   },
   "kind": "Request",
   "operation": {
@@ -102,6 +103,7 @@ const node: ConcreteRequest = {
     ]
   },
   "params": {
+    "cacheID": "6a572e25bfa26e2096f74dcddbd712d1",
     "id": null,
     "metadata": {},
     "name": "HomePageQuery",

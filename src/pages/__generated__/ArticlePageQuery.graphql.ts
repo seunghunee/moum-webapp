@@ -40,8 +40,7 @@ var v0 = [
   {
     "defaultValue": null,
     "kind": "LocalArgument",
-    "name": "title",
-    "type": "String!"
+    "name": "title"
   }
 ],
 v1 = [
@@ -75,7 +74,8 @@ return {
         "storageKey": null
       }
     ],
-    "type": "Query"
+    "type": "Query",
+    "abstractKey": null
   },
   "kind": "Request",
   "operation": {
@@ -118,6 +118,7 @@ return {
     ]
   },
   "params": {
+    "cacheID": "94a27b246d016069aafcfc9cc2c50e0e",
     "id": null,
     "metadata": {},
     "name": "ArticlePageQuery",

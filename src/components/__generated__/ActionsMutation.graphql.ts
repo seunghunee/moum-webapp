@@ -35,8 +35,7 @@ var v0 = [
   {
     "defaultValue": null,
     "kind": "LocalArgument",
-    "name": "input",
-    "type": "DeleteArticleInput!"
+    "name": "input"
   }
 ],
 v1 = [
@@ -72,7 +71,8 @@ return {
     "metadata": null,
     "name": "ActionsMutation",
     "selections": (v1/*: any*/),
-    "type": "Mutation"
+    "type": "Mutation",
+    "abstractKey": null
   },
   "kind": "Request",
   "operation": {
@@ -82,6 +82,7 @@ return {
     "selections": (v1/*: any*/)
   },
   "params": {
+    "cacheID": "acea1b4fe45c35e0664108685976a82d",
     "id": null,
     "metadata": {},
     "name": "ActionsMutation",

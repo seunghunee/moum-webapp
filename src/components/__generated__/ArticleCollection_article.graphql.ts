@@ -37,7 +37,8 @@ const node: ReaderFragment = {
       "name": "ArticleCard_article"
     }
   ],
-  "type": "Article"
+  "type": "Article",
+  "abstractKey": null
 };
 (node as any).hash = 'cc7e2896a7f6b832fd9be3058465fe12';
 export default node;
