@@ -27,6 +27,7 @@
     "lint": "eslint . --ext .ts,.tsx",
     "fmt": "prettier --write .",
     "test": "react-scripts test",
+    "e2e": "jest e2e/.*",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
