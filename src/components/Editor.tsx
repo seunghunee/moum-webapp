@@ -38,7 +38,9 @@ const Editor: React.FC<Props> = ({
         value={body}
         onChange={(event) => setBody(event.target.value)}
       />
-      <Fab onClick={() => submit(title, body)}>Submit</Fab>
+      <Fab onClick={() => submit(title, body)} data-test-id="submitBtn">
+        Submit
+      </Fab>
     </>
   );
 };

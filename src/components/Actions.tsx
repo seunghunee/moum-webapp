@@ -69,9 +69,24 @@ const Actions: React.FC = () => {
   };
 
   let items = [
-    { Icon: AddIcon, text: "New article", onClick: handleAddClick },
-    { Icon: EditIcon, text: "Edit", onClick: handleEditClick },
-    { Icon: DeleteIcon, text: "Delete", onClick: handleDeleteClick },
+    {
+      Icon: AddIcon,
+      text: "New article",
+      onClick: handleAddClick,
+      testId: "newArticleBtn",
+    },
+    {
+      Icon: EditIcon,
+      text: "Edit",
+      onClick: handleEditClick,
+      testId: "editArticleBtn",
+    },
+    {
+      Icon: DeleteIcon,
+      text: "Delete",
+      onClick: handleDeleteClick,
+      testId: "deleteArticleBtn",
+    },
   ];
   switch (routeMatch?.path) {
     case Paths.EditArticle:
@@ -91,8 +106,8 @@ const Actions: React.FC = () => {
       open={isOverflowMenuOpen}
       onClose={handleOverflowMenuClose}
     >
-      {items.map(({ Icon, text, onClick }) => (
-        <MenuItem key={text} onClick={onClick}>
+      {items.map(({ Icon, text, onClick, testId }) => (
+        <MenuItem key={text} onClick={onClick} data-test-id={testId}>
           <IconButton color="inherit">
             <Icon />
           </IconButton>
@@ -105,9 +120,9 @@ const Actions: React.FC = () => {
   return (
     <>
       <Hidden xsDown>
-        {items.map(({ Icon, text, onClick }) => (
+        {items.map(({ Icon, text, onClick, testId }) => (
           <Tooltip key={text} title={text}>
-            <IconButton onClick={onClick} color="inherit">
+            <IconButton onClick={onClick} color="inherit" data-test-id={testId}>
               <Icon />
             </IconButton>
           </Tooltip>
