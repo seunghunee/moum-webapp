@@ -23,7 +23,7 @@
   "scripts": {
     "start": "npm run relay && react-scripts start",
     "build": "npm run relay && react-scripts build",
-    "relay": "relay-compiler --schema ./schema.graphql --src ./src --language typescript --watchman false $@",
+    "relay": "relay-compiler --schema ./src/schema.graphql --src ./src --language typescript --watchman false $@",
     "lint": "eslint . --ext .ts,.tsx",
     "fmt": "prettier --write .",
     "test": "react-scripts test",
